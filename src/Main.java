@@ -1,44 +1,53 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
+
 public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println("helle world");
-
-        System.out.printf("Hello and welcome!");
-
-        System.out.println(2*5);
-        System.out.println(8/2);
-        System.out.println(3+3);
-        System.out.println(35+5);
-
-        System.out.println(128-28);
 
 
-        int myNum;
-        myNum = 15;
-        System.out.println("myNum");
-        System.out.println(myNum);
+        int[] myArry = {2 , 4 , 6, 8 ,10};
+        int b = 0 ;
 
-        String fristName = "Maxim";
-        String lastName = "Strelinicov";
-        String fullNume = fristName + lastName;
+        System.out.println("inreoduceti un numar de tip integer petru variabila b");
+        try {
+             b = new Scanner(System.in).nextInt();
+        }catch(Exception myErr){
+            System.err.println(myErr.getClass());
+            System.exit(1);
+        };
+        for(int i = 0 ; i< myArry.length;i++){
 
-        System.out.println(fullNume);
-
-
-        int a = 5, x = 6 , y = 5;
-
-        System.out.println(a+x+y);
-
-        int c, v, b ;
-        c = v = b = 50;
-
-        System.out.println(c+v+b);
-
-        for (int i = 1; i <= 5; i++) {
-
-
-            System.out.println("i = " + i);
+            if(myArry[i] < b){
+                System.out.println("Elementul din tablou " + myArry[i] + " < Elemnetul  b " + b);
+            } else if (myArry[i] > b) {
+                System.out.println("Elementul din tablou " + myArry[i] + " > Elemnetul  b " + b);
+            } else if (myArry[i] == b) {
+                System.out.println("Elementul din tablou " + myArry[i] + " = Elemnetul  b " + b);
+            }
         }
+
+        List<Integer> list = new ArrayList<>();
+        list.add(b);
+        list.add(5);
+        list.add(7);
+        list.add(8);
+
+        System.out.println("Elementele din lista sunt :");
+
+        for(int num : list) {
+            System.out.println(num);
+        }
+        System.out.println("Elementele pare din lista");
+        list.stream()
+                .filter(num -> num % 2 == 0)
+                .forEach(System.out::println);
     }
+
+
+
 }
